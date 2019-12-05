@@ -1,10 +1,8 @@
 import flask
-from flask import jsonify
-from select_all import select_all
+from queries import all_stud, depts
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
-
 
 @app.route('/', methods=['GET'])
 def home():
@@ -16,8 +14,12 @@ def home():
 
 @app.route('/all', methods=['GET'])
 def all_things():
-    all_things_ = select_all()
-    return jsonify(all_things_)
+    return all_stud()
+
+
+@app.route('/dept', methods=['GET'])
+def all_dept():
+    return depts()
 
 
 # This starts the server at http://127.0.0.1:5000/
