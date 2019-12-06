@@ -1,5 +1,5 @@
 import flask
-from queries import all_stud, depts
+from queries import all_stud, depts, courses
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -20,6 +20,10 @@ def all_things():
 @app.route('/dept', methods=['GET'])
 def all_dept():
     return depts()
+
+@app.route('/courses', methods=['GET'])
+def all_courses():
+    return courses()
 
 
 # This starts the server at http://127.0.0.1:5000/
